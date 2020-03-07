@@ -1,4 +1,4 @@
-package day2_Locators;
+package day2_Locators1;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
