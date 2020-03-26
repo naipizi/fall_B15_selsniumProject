@@ -6,28 +6,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.sql.SQLOutput;
-
-public class ClickVsSubmit {
-
+public class GetText {
     public static void main(String[] args) {
-
-        /*
-        Click()  comparing the click method and submit method
-        submit()
-        task:
-        1. go to forgot password web page
-        http://practice.cybertekschool.com/forgot_password
-       2.  enter any email
-       3. click "retrieve password" bttb
-        4. verify the URL is:
-        http://practice.cybertekschool.com/email_sent
-         */
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
-        // go to forgot password web page
+     // go to forgot password web page
         driver.get("http://practice.cybertekschool.com/forgot_password");
         driver.manage().window().maximize();
 
@@ -43,16 +28,24 @@ public class ClickVsSubmit {
         //submit email by clicking the "retrive password "
         submitBottom.submit();
 
-        // verify ---> expected result vs actual result
-        String expectedURL = "http://practice.cybertekschool.com/email_sent";
-        String actualURL = driver.getCurrentUrl();
+        // verify that the confirmation text " Your e-mail's been sent ";
 
-        if (expectedURL.equals(actualURL)) {
-            System.out.println("test is pass");
-        } else {
-            System.out.println(" test is failed");
+        String expectedText = " Your e-mail's been sent";
+
+        WebElement message = driver.findElement(By.name("confirmation_message"));
+
+        //getText()--->
+        String ActualText = message.getText();
+
+        if(expectedText.equals(ActualText)){
+            System.out.println("pass");
+        }else {
+            System.out.println("fail");
         }
+
+
+
+
+
     }
-
-
 }

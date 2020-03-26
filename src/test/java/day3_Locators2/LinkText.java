@@ -29,6 +29,21 @@ public class LinkText {
         String text = example3_2.getText();
         System.out.println(text);
 
+        //locate Cybertek_School
+        WebElement cybertekSchool = driver.findElement(By.linkText("Cybertek School"));
+
+        //I can not print the above variable cybertekschool
+        //because it is a webElement
+
+        //in order to print, I need getText()
+
+        String textVersion = cybertekSchool.getText();
+        System.out.println(textVersion);
+
+        //locate the element : Home
+
+
+
 
     }
 }
